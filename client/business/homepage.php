@@ -1,7 +1,9 @@
 <?php
 function home(){
-    dd('something');
-    echo 1;
+    $name = 'thienth';
+    $age = 30;
+    $mainView = './client/views/homepage/index.php';
+    include_once './client/views/layouts/main.php';
 }
 
 
