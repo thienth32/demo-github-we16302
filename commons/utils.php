@@ -5,6 +5,7 @@ function dd(){
     echo "<pre>";
     var_dump($data);
     echo "</pre>";
+    die;
 }
 
 function client_render($view, $data){
