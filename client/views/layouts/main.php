@@ -12,7 +12,7 @@
     </header>
     <main>
 
-        <?php include_once $mainView; ?>
+        <?php include_once $view; ?>
     </main>
     <footer style="height: 150px; background: grey;"></footer>
 </body>
