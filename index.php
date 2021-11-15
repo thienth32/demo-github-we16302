@@ -7,6 +7,9 @@ switch ($url) {
         require_once './client/business/homepage.php';
         home();
         break;
+    case 'gioi-thieu':
+        require_once './client/business/homepage.php';
+        about();
     case 'danh-muc':
         require_once './client/business/category.php';
         list_product();
