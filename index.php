@@ -27,6 +27,14 @@ switch ($url) {
         require_once './admin/business/category.php';
         cate_remove();
         break;
+    case 'cp-admin/danh-muc/tao-moi':
+        require_once './admin/business/category.php';
+        cate_add_form();
+        break;
+    case 'cp-admin/danh-muc/luu-tao-moi':
+        require_once './admin/business/category.php';
+        cate_save_add();
+        break;
 
     default:
         # code...

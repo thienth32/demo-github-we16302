@@ -17,4 +17,16 @@ function cate_remove(){
     header("location: " . ADMIN_URL . 'danh-muc');
 }
 
+function cate_add_form(){
+    admin_render('category/add-form.php', [], 'admin-assets/custom/category_add.js');
+}
+
+function cate_save_add(){
+    $name = $_POST['name'];
+    $show_menu = isset($_POST['show_menu']) ? 1 : 0;
+    $sql = "insert into categories (name, show_menu) values ('$name', $show_menu)";
+    executeQuery($sql);
+    header("location: " . ADMIN_URL . 'danh-muc');
+}
+
 ?>
