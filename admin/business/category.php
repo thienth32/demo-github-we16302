@@ -7,7 +7,7 @@ function cate_index(){
     $cates = executeQuery($sql, true);
 
     // hiển thị view
-    admin_render('category/index.php', compact('cates', 'keyword'));
+    admin_render('category/index.php', compact('cates', 'keyword'), 'admin-assets/custom/category_index.js');
 }
 
 ?>

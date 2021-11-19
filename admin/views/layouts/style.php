@@ -10,6 +10,8 @@
 <link rel="stylesheet" href="<?= ADMIN_ASSET ?>plugins/icheck-bootstrap/icheck-bootstrap.min.css">
 <!-- JQVMap -->
 <link rel="stylesheet" href="<?= ADMIN_ASSET ?>plugins/jqvmap/jqvmap.min.css">
+
+<link rel="stylesheet" href="<?= ADMIN_ASSET ?>plugins/sweetalert2-theme-bootstrap-4/bootstrap-4.min.css">
 <!-- Theme style -->
 <link rel="stylesheet" href="<?= ADMIN_ASSET ?>dist/css/adminlte.min.css">
 <!-- overlayScrollbars -->

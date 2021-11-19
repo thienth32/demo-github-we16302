@@ -19,7 +19,7 @@ function client_render($view, $data = []){
     include_once "./client/views/layouts/main.php";
 }
 
-function admin_render($view, $data = []){
+function admin_render($view, $data = [], $jsFile = null){
     extract($data);
     $view = './admin/views/' . $view;
     include_once "./admin/views/layouts/main.php";

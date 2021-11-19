@@ -32,7 +32,7 @@
                                     <a href="<?= ADMIN_URL . 'category/cap-nhat?id='. $item['id'] ?>" class="btn btn-sm btn-info">
                                         <i class="fas fa-edit"></i>
                                     </a>
-                                    <a href="<?= ADMIN_URL . 'category/xoa?id='. $item['id'] ?>" class="btn btn-sm btn-danger">
+                                    <a href="javascript:;" onclick="confirm_remove('<?= ADMIN_URL . 'category/xoa?id='. $item['id'] ?>', '<?= $item['name']?>')" class="btn btn-sm btn-danger">
                                         <i class="fas fa-trash"></i>
                                     </a>
                                 </td>

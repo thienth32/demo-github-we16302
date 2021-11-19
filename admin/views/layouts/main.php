@@ -70,5 +70,12 @@
 <!-- ./wrapper -->
 
 <?php include_once './admin/views/layouts/script.php'; ?>
+<script>
+  <?php 
+    if($jsFile != null){
+      include_once './public/' . $jsFile;
+    }
+  ?>
+</script>
 </body>
 </html>
