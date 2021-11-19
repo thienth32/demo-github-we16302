@@ -2,6 +2,7 @@
 session_start();
 $url = isset($_GET['url']) ? rtrim($_GET['url'], '/') : "/";
 require_once './commons/utils.php';
+require_once './dao/system_dao.php';
 switch ($url) {
     case '/':
         require_once './client/business/homepage.php';

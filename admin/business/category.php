@@ -1,7 +1,12 @@
 <?php
 
 function cate_index(){
-    echo 1;
+    // lấy danh sách danh mục
+    $sql = "select * from categories";
+    $cates = executeQuery($sql, true);
+
+    // hiển thị view
+    admin_render('category/index.php', compact('cates'));
 }
 
 ?>
