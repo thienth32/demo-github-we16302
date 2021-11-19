@@ -1,6 +1,6 @@
 <?php
 session_start();
-$url = isset($_GET['url']) ? $_GET['url'] : "/";
+$url = isset($_GET['url']) ? rtrim($_GET['url'], '/') : "/";
 require_once './commons/utils.php';
 switch ($url) {
     case '/':
@@ -17,6 +17,10 @@ switch ($url) {
     case 'cp-admin':
         require_once './admin/business/dashboard.php';
         dashboard_index();
+        break;
+    case 'cp-admin/danh-muc':
+        require_once './admin/business/category.php';
+        cate_index();
         break;
 
     default:
