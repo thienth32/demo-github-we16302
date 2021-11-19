@@ -10,4 +10,11 @@ function cate_index(){
     admin_render('category/index.php', compact('cates', 'keyword'), 'admin-assets/custom/category_index.js');
 }
 
+function cate_remove(){
+    $id = $_GET['id'];
+    $sql = "delete from categories where id = $id";
+    executeQuery($sql);
+    header("location: " . ADMIN_URL . 'danh-muc');
+}
+
 ?>

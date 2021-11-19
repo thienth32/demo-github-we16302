@@ -23,6 +23,10 @@ switch ($url) {
         require_once './admin/business/category.php';
         cate_index();
         break;
+    case 'cp-admin/danh-muc/xoa':
+        require_once './admin/business/category.php';
+        cate_remove();
+        break;
 
     default:
         # code...
