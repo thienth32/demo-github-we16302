@@ -2,7 +2,15 @@
     <div class="col-12">
         <div class="card">
             <div class="card-header">
-                <h3 class="card-title">Danh sách danh mục</h3>
+                <form action="" method="get">
+                    <div class="row">
+                        <div class="col-6">
+                            <div class="form-group">
+                              <input type="text" name="keyword" value="<?= $keyword ?>" class="form-control" placeholder="Tìm kiếm..." aria-describedby="helpId">
+                            </div>
+                        </div>
+                    </div>
+                </form>
             </div>
             <div class="card-body">
                 <table class="table tabl-stripped">
