@@ -35,7 +35,14 @@ switch ($url) {
         require_once './admin/business/category.php';
         cate_save_add();
         break;
-
+    case 'upload-img-form':
+        require_once './client/business/homepage.php';
+        img_upload_form();
+        break;
+    case 'save-upload-image':
+        require_once './client/business/homepage.php';
+        save_image();
+        break;
     default:
         # code...
         break;

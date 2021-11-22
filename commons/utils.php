@@ -1,6 +1,7 @@
 <?php
 
 const BASE_URL = "http://localhost/we16302-da1/";
+const PUBLIC_URL = BASE_URL . 'public/';
 const ADMIN_URL = BASE_URL . 'cp-admin/';
 const ADMIN_ASSET = BASE_URL . 'public/admin-assets/';
 

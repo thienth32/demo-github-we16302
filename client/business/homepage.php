@@ -10,6 +10,22 @@ function about(){
     
 }
 
+function img_upload_form(){
+    client_render('homepage/upload-img-form.php');
+}
+
+function save_image(){
+    $file = $_FILES['image'];
+    $filename = "";
+    if($file['size'] > 0){
+        $filename = uniqid() . '-' . $file['name'];
+        move_uploaded_file($file['tmp_name'], './public/uploads/' . $filename);
+        $filename = 'uploads/' . $filename;
+    }
+
+    echo PUBLIC_URL . $filename;
+}
+
 
 
 ?>
