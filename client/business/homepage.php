@@ -52,7 +52,7 @@ function send_email(){
         $mail->Port       = 465;                                    //TCP port to connect to; use 587 if you have set `SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS`
 
         //Recipients
-        $mail->setFrom('thienth32@gmail.com', 'ThienTH');
+        $mail->setFrom('example@gmail.com', 'ThienTH');
 
         $arrEmail = explode(',', $recciever);
         
@@ -60,7 +60,7 @@ function send_email(){
             $mail->addAddress(trim($em));
         }
                        
-        $mail->addReplyTo('thienth@fpt.edu.vn', 'ThienTH Teacher');
+        $mail->addReplyTo('example@fpt.edu.vn', 'ThienTH Teacher');
         
         //Content
         $mail->isHTML(true);                                  //Set email format to HTML
