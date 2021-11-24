@@ -3,6 +3,9 @@ session_start();
 $url = isset($_GET['url']) ? rtrim($_GET['url'], '/') : "/";
 require_once './commons/utils.php';
 require_once './dao/system_dao.php';
+require_once './vendor/PHPMailer/src/Exception.php';
+require_once './vendor/PHPMailer/src/PHPMailer.php';
+require_once './vendor/PHPMailer/src/SMTP.php';
 switch ($url) {
     case '/':
         require_once './client/business/homepage.php';
@@ -42,6 +45,14 @@ switch ($url) {
     case 'save-upload-image':
         require_once './client/business/homepage.php';
         save_image();
+        break;
+    case 'send-mail-form':
+        require_once './client/business/homepage.php';
+        email_form();
+        break;
+    case 'submit-email':
+        require_once './client/business/homepage.php';
+        send_email();
         break;
     default:
         # code...
