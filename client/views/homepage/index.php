@@ -4,6 +4,7 @@
         <th>name</th>
         <th>price</th>
         <th>image</th>
+        <th></th>
     </thead>
     <tbody>
         <?php foreach($products as $p):?>
@@ -12,6 +13,11 @@
                 <td><?= $p['name'] ?></td>
                 <td><?= $p['price'] ?></td>
                 <td><?= $p['image'] ?></td>
+                <td>
+                    <?php if(isset($_SESSION['auth']) && $_SESSION['auth'] != null):?>
+                        <a href="<?= BASE_URL . 'yeu-thich?id=' . $p['id']?>">Yêu thích</a>
+                    <?php endif ?>
+                </td>
             </tr>
         <?php endforeach ?>
     </tbody>

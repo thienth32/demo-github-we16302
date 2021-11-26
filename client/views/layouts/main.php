@@ -7,13 +7,17 @@
     <title>WE16302 - Dự án 1</title>
 </head>
 <body>
-    <header style="height: 70px; background: green;">
-        Menu here
+    <header >
+        <?php if(isset($_SESSION['auth']) && $_SESSION['auth'] != null):?>
+            <p>Tài khoản: <?= $_SESSION['auth']['email'] ?> (đã yêu thích: <?= count(getFavoriteProducts())?>), <a href="<?= BASE_URL . 'dang-xuat'?>">Đăng xuất</a></p>
+        <?php else: ?>
+            <a href="<?= BASE_URL . 'dang-nhap'?>">Đăng nhập</a>
+        <?php endif ?>
     </header>
     <main>
 
         <?php include_once $view; ?>
     </main>
-    <footer style="height: 150px; background: grey;"></footer>
+    <footer ></footer>
 </body>
 </html>

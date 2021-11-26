@@ -11,9 +11,21 @@ switch ($url) {
         require_once './client/business/homepage.php';
         home();
         break;
-    case 'gioi-thieu':
+    case 'dang-nhap':
+        require_once './client/business/login.php';
+        login_form();
+        break;
+    case 'dang-xuat':
+        require_once './client/business/login.php';
+        logout();
+        break;
+    case 'submit-login':
+        require_once './client/business/login.php';
+        submit_login();
+        break;
+    case 'yeu-thich':
         require_once './client/business/homepage.php';
-        about();
+        favorite_product();
     case 'danh-muc':
         require_once './client/business/category.php';
         list_product();
