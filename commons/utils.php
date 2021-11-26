@@ -5,6 +5,8 @@ const PUBLIC_URL = BASE_URL . 'public/';
 const ADMIN_URL = BASE_URL . 'cp-admin/';
 const ADMIN_ASSET = BASE_URL . 'public/admin-assets/';
 
+const ADMIN_ROLE = 700;
+const STAFF_ROLE = 200;
 
 function dd(){
     $data = func_get_args();
@@ -36,6 +38,14 @@ function getFavoriteProducts(){
     $getFavoriteProductQuery = "select * from favorite_products where user_id = $userId";
     $favoriteProducts = executeQuery($getFavoriteProductQuery, true);
     return $favoriteProducts;
+}
+
+function checkAuth($role = []){
+    
+    if(!isset($_SESSION['auth']) || $_SESSION['auth'] == null || !in_array($_SESSION['auth']['role'], $role)){
+        header('location: ' . BASE_URL . 'dang-nhap');
+        die;
+    }
 }
 
 ?>

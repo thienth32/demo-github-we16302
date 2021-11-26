@@ -31,14 +31,17 @@ switch ($url) {
         list_product();
         break;
     case 'cp-admin':
+        checkAuth([STAFF_ROLE, ADMIN_ROLE]);
         require_once './admin/business/dashboard.php';
         dashboard_index();
         break;
     case 'cp-admin/danh-muc':
+        
         require_once './admin/business/category.php';
         cate_index();
         break;
     case 'cp-admin/danh-muc/xoa':
+        checkAuth([ADMIN_ROLE]);
         require_once './admin/business/category.php';
         cate_remove();
         break;
