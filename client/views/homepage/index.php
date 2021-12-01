@@ -17,6 +17,7 @@
                     <?php if(isset($_SESSION['auth']) && $_SESSION['auth'] != null):?>
                         <a href="<?= BASE_URL . 'yeu-thich?id=' . $p['id']?>">Yêu thích</a>
                     <?php endif ?>
+                    <a href="<?= BASE_URL . 'add-to-cart?id=' . $p['id']?>">giỏ hàng</a>
                 </td>
             </tr>
         <?php endforeach ?>

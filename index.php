@@ -11,6 +11,10 @@ switch ($url) {
         require_once './client/business/homepage.php';
         home();
         break;
+    case 'add-to-cart':
+        require_once './client/business/homepage.php';
+        add2Cart();
+        break;
     case 'dang-nhap':
         require_once './client/business/login.php';
         login_form();

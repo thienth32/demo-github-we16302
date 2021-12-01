@@ -9,6 +9,39 @@ function home(){
     client_render('homepage/index.php', compact('products'));
 }
 
+function add2Cart(){
+    $pId = $_GET['id'];
+    // lấy thông tin sản phẩm
+    $getProductByIdQuery = "select * from products where id = $pId";
+    $product = executeQuery($getProductByIdQuery, false);
+    if(!$product){
+        header('location: ' . BASE_URL);
+        die;
+    }
+    $cart = isset($_SESSION['cart']) ? $_SESSION['cart'] : [];
+    // kiểm tra xem sản phẩm đã có trong giỏ hàng hay chưa
+    $existedIndex = -1;
+    foreach ($cart as $index => $item) {
+        if($item['id'] == $product['id']){
+            $existedIndex = $index;
+            break;
+        }
+    }
+    // nếu có rồi thì cộng thêm 1 đơn vị vào quantity
+    if($existedIndex != -1){
+        $cart[$existedIndex]['quantity']++;
+    }else{
+        // nếu chưa có thì thêm vào giỏ với quanity mặc định = 1
+        $product['quantity'] = 1;
+        $cart[] = $product;
+    }
+
+    $_SESSION['cart'] = $cart;
+    
+    header('location: ' . BASE_URL);
+    die;
+}
+
 function favorite_product(){
     $id = $_GET['id'];
     // ktra xem đã được yêu thích sản phẩm này hay chưa 

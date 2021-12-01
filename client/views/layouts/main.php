@@ -13,6 +13,7 @@
         <?php else: ?>
             <a href="<?= BASE_URL . 'dang-nhap'?>">Đăng nhập</a>
         <?php endif ?>
+        <p>Giỏ hàng: (<?= countCartNumber() ?>) sản phẩm</p>
     </header>
     <main>
 
