@@ -17,6 +17,13 @@ function executeQuery($sql, $getAll = false){
     return $stmt->fetch();
 }
 
+function insertDataAndGetId($sql){
+    $connect = get_connect();
+    $stmt = $connect->prepare($sql);
+    $stmt->execute();
+    $id = $connect->lastInsertId();
+    return $id;
+}
 
 
 ?>

@@ -13,7 +13,9 @@
         <?php else: ?>
             <a href="<?= BASE_URL . 'dang-nhap'?>">Đăng nhập</a>
         <?php endif ?>
-        <p>Giỏ hàng: (<?= countCartNumber() ?>) sản phẩm</p>
+        <p>
+            <a href="<?= BASE_URL . 'check-out'?>">Giỏ hàng: (<?= countCartNumber() ?>) sản phẩm</a>
+        </p>
     </header>
     <main>
 

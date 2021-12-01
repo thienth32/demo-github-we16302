@@ -15,6 +15,14 @@ switch ($url) {
         require_once './client/business/homepage.php';
         add2Cart();
         break;
+    case 'check-out':
+        require_once './client/business/homepage.php';
+        checkout();
+        break;
+    case 'pay-cart':
+        require_once './client/business/homepage.php';
+        paycart();
+        break;
     case 'dang-nhap':
         require_once './client/business/login.php';
         login_form();

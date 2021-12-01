@@ -42,6 +42,55 @@ function add2Cart(){
     die;
 }
 
+function checkout(){
+    if(!isset($_SESSION['cart']) || empty($_SESSION['cart'])){
+        header('location: '. BASE_URL);
+        die;
+    }
+    $cart = $_SESSION['cart'];
+    client_render('homepage/checkout.php', compact('cart'));
+}
+
+function paycart()
+{
+    $name = $_POST['name'];
+    $phone = $_POST['phone'];
+    $email = $_POST['email'];
+    $address = $_POST['address'];
+    $note = $_POST['note'];
+    // insert dữ liệu để tạo hóa đơn mới, sau đó lấy id của hóa đơn
+    $createInvoiceQuery = "insert into invoices 
+                                (customer_name, customer_phone_number, customer_email, 
+                                    customer_address, note)
+                            values
+                                ('$name', '$phone', '$email', '$address', '$note')";
+    $invoiceId = insertDataAndGetId($createInvoiceQuery);
+    $totalPrice = 0;
+    // chạy vòng lặp qua các phần tử của giỏ hàng, sau đó insert dữ liệu vào bảng invoice_detail
+    foreach ($_SESSION['cart'] as $item) {
+        $productId = $item['id'];
+        $price = $item['price'];
+        $quantity = $item['quantity'];
+        $totalPrice += $price*$quantity;
+        $insertInvoiceDetailQuery = "insert into invoice_detail 
+                                        (invoice_id, product_id, quantity, unit_price)
+                                    values 
+                                        ($invoiceId, $productId, $quantity, $price)";
+        executeQuery($insertInvoiceDetailQuery, false);
+    }
+    // Cập nhật tổng số tiền vào hóa đơn
+    $updateTotalPriceToInvoice = "update invoices
+                                    set total_price = $totalPrice
+                                where id = $invoiceId";
+    executeQuery($updateTotalPriceToInvoice, false);
+
+    unset($_SESSION['cart']);
+
+    header('location: ' . BASE_URL);
+    die;
+    
+}
+
 function favorite_product(){
     $id = $_GET['id'];
     // ktra xem đã được yêu thích sản phẩm này hay chưa 
