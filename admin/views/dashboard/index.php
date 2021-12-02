@@ -39,4 +39,17 @@
             <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
         </div>
     </div>
+    <div class="col-8 offset-2">
+        <div class="card">
+            <div class="card-header"></div>
+            <div class="card-body">
+                <canvas id="myChart" width="400" height="400"></canvas>
+            </div>
+        </div>
+    </div>
 </div>
+
+<script>
+    var listTitle = <?= json_encode($listDays)?>;
+    var listData = <?= json_encode($listMoney)?>;
+</script>
